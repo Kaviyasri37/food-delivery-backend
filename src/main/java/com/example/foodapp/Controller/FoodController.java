@@ -17,6 +17,10 @@ public class FoodController {
         this.foodRepository = foodRepository;
     }
 
+    @GetMapping("/count")
+    public long countFoods() {
+        return foodRepository.count();
+    }
     @GetMapping
     public List<FoodItem> getAllFoods() {
         return foodRepository.findAll();
@@ -47,4 +51,5 @@ public class FoodController {
     public List<FoodItem> recommendFoods(@PathVariable String mood) {
         return foodRepository.findByMoodType(mood);
     }
+
 }
